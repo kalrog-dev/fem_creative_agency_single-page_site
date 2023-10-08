@@ -1,0 +1,33 @@
+/* Fonts */
+@font-face {
+  font-family: "Commissioner";
+  font-weight: 400;
+  src: url(./fonts/Commissioner-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Commissioner";
+  font-weight: 400;
+  src: url(./fonts/Commissioner-Regular.ttf);
+}
+
+/* Variables */
+
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* General */
+body {
+  font-family: "Commissioner";
+}
+
+/* Typography */
+/* Layout */
+/* Media queries */
