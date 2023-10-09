@@ -6,18 +6,22 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
   <title>Frontend Mentor | Creative single page site</title>
+  <script src="./app.js" defer></script>
 </head>
 <body>
   <header>
     <img class="logo" src="./assets/desktop/logo.svg" alt="Creative logo">
-    <nav class="main-nav">
-      <ul>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Service</a></li>
-        <li><a href="#">Projects</a></li>
+    <nav class="main-nav close-nav">
+      <ul class="nav-list">
+        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Service</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
       </ul>
-      <a class="btn" href="#">Schedule a call</a>
+      <a class="btn btn-primary" href="#">Schedule a call</a>
     </nav>
+    <button class="menu-btn">
+      <img src="./assets/mobile/icon-hamburger.svg" alt="Menu icon">
+    </button>
   </header>
   <main>
     <section id="hero">

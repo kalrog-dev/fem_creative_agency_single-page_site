@@ -39,6 +39,7 @@ body {
 }
 
 a {
+  color:hsl( var(--clr-neutral-100) );
   text-decoration: none;
 }
 
@@ -52,6 +53,7 @@ img {
   display: inline-block;
   background-color: hsl( var(--clr-neutral-800) );
   color: hsl( var(--clr-neutral-100) );
+  font-size: 1rem;
   font-weight: 800;
   padding: 1em 2.1em;
   transition: background-color 0.1s;
@@ -71,12 +73,24 @@ img {
   background-color: hsl( var(--clr-primary) );
 }
 
+/* Navigation buttons */
+.menu-btn {
+  background-color: hsl( var(--clr-neutral-100) );
+  border: none;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.main-nav .btn {
+  padding: 1.15em 2.9em;
+}
+
 /* Arrows */
 .grid__arrow-btn {
   background-color: hsl( var(--clr-neutral-100) );
   border: none;
   border-radius: 50%;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .grid__arrow-btn:hover .grid__arrow,
@@ -90,6 +104,8 @@ img {
   fill: hsl( var(--clr-neutral-100) );
   stroke: hsl( var(--clr-primary) );
   color: hsl( var(--clr-primary) );
+  transition-property: fill, stroke, color;
+  transition-duration: 0.1s;
 }
 
 /* Typography */
@@ -98,5 +114,61 @@ img {
   line-height: 1;
 }
 
+.grid__title,
+.footer__title {
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+.nav-link,
+#hero .btn {
+  font-size: 1.125rem;
+}
+
+.grid__link {
+  color:hsl( var(--clr-primary) );
+  font-weight: 800;
+}
+
+.grid__slider-image-title {
+  font-size: 0.9375rem;
+}
+
+/* Header & navigation */
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.75em 1.75em;
+}
+
+.main-nav {
+  position: absolute;
+  top: 100%;
+  right: 1.75em;
+  width: max-content;
+  padding: 1.625em;
+  background-color: hsl( var(--clr-neutral-800) );
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: clip-path 0.35s ease-out;
+}
+
+.close-nav {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.nav-item {
+  text-align: center;
+  list-style: none;
+}
+
+.nav-link {
+  display: block;
+  width: 100%;
+  padding-block: 0.65em;
+}
+
 /* Layout */
+
 /* Media queries */
