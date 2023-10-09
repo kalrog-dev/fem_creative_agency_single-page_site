@@ -19,8 +19,21 @@ menuBtn.addEventListener("click", () => {
   }
 });
 
-// TODO: Close menu when a link is clicked
+// Close menu when a navigation link or button is clicked
+const navLinks = document.querySelectorAll(".nav-link");
+const navBtn = document.querySelector(".main-nav .btn");
 
+navLinks.forEach(e => {
+  e.addEventListener("click", () => {
+    nav.classList.add("close-nav");
+    menuIcon.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
+  });
+})
+
+navBtn.addEventListener("click", () => {
+  nav.classList.add("close-nav");
+  menuIcon.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
+});
 
 /* ==================
   Slider
