@@ -13,9 +13,9 @@
     <img class="logo" src="./assets/desktop/logo.svg" alt="Creative logo">
     <nav class="main-nav close-nav">
       <ul class="nav-list">
-        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Service</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#service">Service</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
       </ul>
       <a class="btn btn-primary" href="#">Schedule a call</a>
     </nav>
@@ -26,7 +26,7 @@
   <main>
     <section id="hero">
       <div class="hero__content">
-        <h1 class="hero__title">Branding &amp;<br> website design<br> agency</h1>
+        <h1 class="hero__title" id="about">Branding &amp;<br> website design<br> agency</h1>
         <p class="hero__body">We specialize in visual storytelling by creating cohesive brand and website design 
           solutions for small businesses, giving lasting impressions to audiences in a digital world.</p>
         <a class="btn btn-primary" href="#">Learn more</a>
@@ -34,7 +34,7 @@
       <img class="hero__image" src="./assets/mobile/image-hero.jpg" alt="Programmer working at the office">
     </section>
     <section id="grid">
-      <div class="grid__design">
+      <div class="grid__design" id="service">
         <div class="grid__content">
           <h2 class="grid__title"><span class="color-primary">Design</span> is strategic.</h2>
           <p class="grid__body">A well-crafted design strategy consistently produces desired outcomes and brand awareness. 
@@ -65,9 +65,21 @@
           </li>
         </ul>
       </div>
-      <!-- Slide 1 -->
-      <div class="grid__slider one">
-        <h2 class="grid__title">Brand naming &amp; guidelines</h2>
+      <!-- Slide -->
+      <div class="grid__slider">
+        <!-- TODO: sliding text -->
+        <div class="grid__slide-titles">
+          <div class="grid__slide-title">
+            <h2 class="grid__title">Brand naming &amp;<br> guidelines</h2>
+          </div>
+          <div class="grid__slide-title">
+            <h2 class="grid__title">Brand identity &amp;<br> merchandise</h2>
+          </div>
+          <div class="grid__slide-title">
+            <h2 class="grid__title">Brand identity &amp;<br> web design</h2>
+          </div>
+        </div>
+        <!-- arrows -->
         <div class="grid__arrow-container">
           <button class="grid__arrow-btn grid__btn-prev">
             <svg class="grid__arrow grid__arrow-prev" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(-1 0 0 1 40 0)" fill-rule="evenodd"><circle cx="20" cy="20" r="19.5"/><path stroke="currentColor" stroke-width="2" d="M17.5 15l5 5-5 5"/></g></svg>
@@ -78,7 +90,7 @@
         </div>
       </div>
       <!-- img -->
-      <div class="grid__slider-image-container">
+      <div class="grid__slider-image-container" id="projects">
         <div class="grid__slide">
           <img class="grid__slider-image" src="./assets/mobile/image-slide-1.jpg" alt="Lean Product Roadmap">
           <div class="grid__slider-image-info">
@@ -101,36 +113,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Slide 2 -->
-      <div class="grid__slider two hide">
-        <h2 class="grid__title">Brand identity &amp; merchandise</h2>
-        <div class="grid__arrow-container">
-          <button class="grid__arrow-btn">
-            <svg class="grid__arrow grid__arrow-prev" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(-1 0 0 1 40 0)" fill-rule="evenodd"><circle cx="20" cy="20" r="19.5"/><path stroke="currentColor" stroke-width="2" d="M17.5 15l5 5-5 5"/></g></svg>
-          </button>
-          <button class="grid__arrow-btn">
-            <svg class="grid__arrow grid__arrow-next" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><g fill-rule="evenodd"><circle cx="20" cy="20" r="19.5"/><path stroke="currentColor" stroke-width="2" d="M17.5 15l5 5-5 5"/></g></svg>
-          </button>
-        </div>
-      </div>
-      <!-- img -->
-      
-
-      <!-- Slide 3 -->
-      <div class="grid__slider three hide">
-        <h2 class="grid__title">Brand identity &amp; web design</h2>
-        <div class="grid__arrow-container">
-          <button class="grid__arrow-btn">
-            <svg class="grid__arrow grid__arrow-prev" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(-1 0 0 1 40 0)" fill-rule="evenodd"><circle cx="20" cy="20" r="19.5"/><path stroke="currentColor" stroke-width="2" d="M17.5 15l5 5-5 5"/></g></svg>
-          </button>
-          <button class="grid__arrow-btn">
-            <svg class="grid__arrow grid__arrow-next" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><g fill-rule="evenodd"><circle cx="20" cy="20" r="19.5"/><path stroke="currentColor" stroke-width="2" d="M17.5 15l5 5-5 5"/></g></svg>
-          </button>
-        </div>
-      </div>
-      <!-- img -->
-      
     </section>
   </main>
   <footer id="footer">

@@ -96,7 +96,7 @@ img {
 .menu-btn {
   background-color: hsl( var(--clr-neutral-100) );
   border: none;
-  padding: 0.5em;
+  padding: 0.35em;
   cursor: pointer;
 }
 
@@ -297,6 +297,16 @@ header {
   color: hsl( var(--clr-neutral-100) );
   background-color: hsl( var(--clr-neutral-800) );
   padding: 4.25em 1.6em;
+}
+
+.grid__slide-titles {
+  display: flex;
+  width: 300vw;
+  transition: transform 1s;
+}
+
+.grid__slide-title {
+  width: 100vw;
 }
 
 .grid__slide {

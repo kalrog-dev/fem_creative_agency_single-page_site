@@ -1,11 +1,11 @@
-/* ==================================
-  Open and close mobile navigation
-===================================== */
+/* ==================
+  Mobile navigation
+=====================*/
 const menuBtn = document.querySelector(".menu-btn");
 const menuIcon = document.querySelector(".menu-icon");
 const nav = document.querySelector(".main-nav");
 
-// TODO: Close menu when a link is clicked
+// Open and close mobile navigation
 menuBtn.addEventListener("click", () => {
   // Navigation is closed
   if (nav.classList.contains("close-nav")) {
@@ -19,13 +19,17 @@ menuBtn.addEventListener("click", () => {
   }
 });
 
-/* ==================================
+// TODO: Close menu when a link is clicked
+
+
+/* ==================
   Slider
-===================================== */
+=====================*/
 let currentSlide = 0;
 const btnPrev = document.querySelector(".grid__btn-prev");
 const btnNext = document.querySelector(".grid__btn-next");
 const slideImageContainer = document.querySelector(".grid__slider-image-container");
+const slideTextContainer = document.querySelector(".grid__slide-titles");
 
 // Clamp current slide
 function clamp(num, min, max) {
@@ -42,10 +46,12 @@ btnPrev.addEventListener("click", () => {
   currentSlide--;
   currentSlide = clamp(currentSlide, 0, 2);
   slideImageContainer.style.transform = `translateX(${currentSlide * -100}vw)`;
+  slideTextContainer.style.transform = `translateX(${currentSlide * -100}vw)`;
 });
 
 btnNext.addEventListener("click", () => {
   currentSlide++;
   currentSlide = clamp(currentSlide, 0, 2);
   slideImageContainer.style.transform = `translateX(${currentSlide * -100}vw)`;
+  slideTextContainer.style.transform = `translateX(${currentSlide * -100}vw)`;
 });
