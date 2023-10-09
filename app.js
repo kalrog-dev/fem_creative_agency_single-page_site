@@ -5,3 +5,5 @@ const nav = document.querySelector(".main-nav");
 menuBtn.addEventListener("click", () => {
   nav.classList.toggle("close-nav");
 });
+
+// TODO: Toggle between hamburger and close icon
