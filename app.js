@@ -7,33 +7,33 @@ const nav = document.querySelector(".main-nav");
 
 // Open and close mobile navigation
 menuBtn.addEventListener("click", () => {
-  // Navigation is closed
-  if (nav.classList.contains("close-nav")) {
-    // Open navigation
-    nav.classList.remove("close-nav");
-    menuIcon.setAttribute("src", "./assets/mobile/icon-cross.svg");
-  } else {
-    // Close navigation
-    nav.classList.add("close-nav");
-    menuIcon.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
-  }
+  nav.classList.contains("close-nav") ? openNav() : closeNav();
 });
 
-// Close menu when a navigation link or button is clicked
+// Close mobile navigation when a navigation link or button is clicked
 const navLinks = document.querySelectorAll(".nav-link");
 const navBtn = document.querySelector(".main-nav .btn");
 
-navLinks.forEach(e => {
-  e.addEventListener("click", () => {
-    nav.classList.add("close-nav");
-    menuIcon.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
+navLinks.forEach(navLink => {
+  navLink.addEventListener("click", () => {
+    closeNav();
   });
 })
 
 navBtn.addEventListener("click", () => {
+  closeNav();
+});
+
+// Functions
+function closeNav() {
   nav.classList.add("close-nav");
   menuIcon.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
-});
+}
+
+function openNav() {
+  nav.classList.remove("close-nav");
+  menuIcon.setAttribute("src", "./assets/mobile/icon-cross.svg");
+}
 
 /* ==================
   Slider

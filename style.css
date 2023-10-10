@@ -247,6 +247,14 @@ header {
 .grid__link {
   padding-bottom: 9px;
   border-bottom: 2px solid hsl( var(--clr-primary) );
+  transition-property: color, border-bottom;
+  transition-duration: 0.1s;
+}
+
+.grid__link:hover,
+.grid__link:focus {
+  color: hsl( var(--clr-primary-light) );
+  border-bottom: 2px solid hsl( var(--clr-primary-light) );
 }
 
 .grid__design-image-container {
@@ -278,7 +286,9 @@ header {
 }
 
 .grid__approach-list-title {
+  position: relative;
   margin-bottom: 1em;
+  z-index: 0;
 }
 
 .grid__approach-list-title::before {
@@ -290,6 +300,7 @@ header {
   font-size: 5rem;
   line-height: 1.1;
   opacity: 0.25;
+  z-index: -1;
 }
 
 .grid__slider {
