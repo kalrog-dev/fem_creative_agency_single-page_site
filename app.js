@@ -41,8 +41,10 @@ function openNav() {
 let currentSlide = 0;
 const btnPrev = document.querySelector(".grid__btn-prev");
 const btnNext = document.querySelector(".grid__btn-next");
-const slideImageContainer = document.querySelector(".grid__slider-image-container");
-const slideTextContainer = document.querySelector(".grid__slide-titles");
+const slidesOfImages = document.querySelector(".grid__slides");
+const slidesOfText = document.querySelector(".grid__slide-titles");
+const slideImage = document.querySelector(".grid__slider-image");
+const slideText = document.querySelector(".grid__slide-title");
 
 // Clamp current slide
 function clamp(num, min, max) {
@@ -54,17 +56,28 @@ function clamp(num, min, max) {
   return num;
 }
 
+// Get element width
+function getElementWidth(element) {
+  return element.offsetWidth;
+}
+
 // Arrow button listeners
 btnPrev.addEventListener("click", () => {
   currentSlide--;
   currentSlide = clamp(currentSlide, 0, 2);
-  slideImageContainer.style.transform = `translateX(${currentSlide * -100}vw)`;
-  slideTextContainer.style.transform = `translateX(${currentSlide * -100}vw)`;
+  slidesOfImages.style.transform = `translateX(${currentSlide * -getElementWidth(slideImage)}px)`;
+  slidesOfText.style.transform = `translateX(${currentSlide * -getElementWidth(slideText)}px)`;
 });
 
 btnNext.addEventListener("click", () => {
   currentSlide++;
   currentSlide = clamp(currentSlide, 0, 2);
-  slideImageContainer.style.transform = `translateX(${currentSlide * -100}vw)`;
-  slideTextContainer.style.transform = `translateX(${currentSlide * -100}vw)`;
+  slidesOfImages.style.transform = `translateX(${currentSlide * -getElementWidth(slideImage)}px)`;
+  slidesOfText.style.transform = `translateX(${currentSlide * -getElementWidth(slideText)}px)`;
 });
+
+// Detect viewport size change and update the sliding image/text sizes
+window.addEventListener("resize", () => {
+  slidesOfImages.style.transform = `translateX(${currentSlide * -getElementWidth(slideImage)}px)`;
+  slidesOfText.style.transform = `translateX(${currentSlide * -getElementWidth(slideText)}px)`;
+})
