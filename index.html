@@ -31,7 +31,12 @@
           solutions for small businesses, giving lasting impressions to audiences in a digital world.</p>
         <a class="btn btn-primary" href="#">Learn more</a>
       </div>
-      <img class="hero__image" src="./assets/mobile/image-hero.jpg" alt="Programmer working at the office">
+      <picture class="hero__picture">
+        <source media="(min-width: 1440px)" srcset="./assets/desktop/image-hero.jpg">
+        <source media="(min-width: 768px)" srcset="./assets/tablet/image-hero.jpg">
+        <source srcset="./assets/mobile/image-hero.jpg">
+        <img class="hero__image" src="./assets/desktop/image-hero.jpg" alt="Programmer working at the office">
+      </picture> 
     </section>
     <section id="grid">
       <div class="grid__design" id="service">
@@ -43,7 +48,12 @@
         </div>
       </div>
       <div class="grid__design-image-container">
-        <img class="grid__design-image" src="./assets/mobile/image-strategic.jpg" alt="Strategic design">
+        <picture>
+          <source media="(min-width: 1440px)" srcset="./assets/desktop/image-strategic.jpg">
+          <source media="(min-width: 768px)" srcset="./assets/tablet/image-strategic.jpg">
+          <source srcset="./assets/mobile/image-strategic.jpg">
+          <img class="grid__design-image" src="./assets/desktop/image-strategic.jpg" alt="Strategic design">
+        </picture>
       </div>
       <div class="grid__approach">
         <h2 class="grid__title">Our approach for creating a winning brand</h2>
@@ -92,21 +102,36 @@
       <!-- img -->
       <div class="grid__slider-image-container" id="projects">
         <div class="grid__slide">
-          <img class="grid__slider-image" src="./assets/mobile/image-slide-1.jpg" alt="Lean Product Roadmap">
+          <picture>
+            <source media="(min-width: 1440px)" srcset="./assets/desktop/image-slide-1.jpg">
+            <source media="(min-width: 768px)" srcset="./assets/tablet/image-slide-1.jpg">
+            <source srcset="./assets/mobile/image-slide-1.jpg">
+            <img class="grid__slider-image" src="./assets/desktop/image-slide-1.jpg" alt="Lean Product Roadmap">
+          </picture>
           <div class="grid__slider-image-info">
             <h3 class="grid__slider-image-title">Lean Product Roadmap</h3>
             <p class="grid__slider-image-date">2019 project</p>
           </div>
         </div>
         <div class="grid__slide">
-          <img class="grid__slider-image" src="./assets/mobile/image-slide-2.jpg" alt="New Majestic Hotel">
+          <picture>
+            <source media="(min-width: 1440px)" srcset="./assets/desktop/image-slide-2.jpg">
+            <source media="(min-width: 768px)" srcset="./assets/tablet/image-slide-2.jpg">
+            <source srcset="./assets/mobile/image-slide-2.jpg">
+            <img class="grid__slider-image" src="./assets/desktop/image-slide-2.jpg" alt="New Majestic Hotel">
+          </picture>
           <div class="grid__slider-image-info">
             <h3 class="grid__slider-image-title">New Majestic Hotel</h3>
             <p class="grid__slider-image-date">2018 Project</p>
           </div>
         </div>
         <div class="grid__slide">
-          <img class="grid__slider-image" src="./assets/mobile/image-slide-3.jpg" alt="Crypto Dashboard">
+          <picture>
+            <source media="(min-width: 1440px)" srcset="./assets/desktop/image-slide-3.jpg">
+            <source media="(min-width: 768px)" srcset="./assets/tablet/image-slide-3.jpg">
+            <source srcset="./assets/mobile/image-slide-3.jpg">
+            <img class="grid__slider-image" src="./assets/desktop/image-slide-3.jpg" alt="Crypto Dashboard">
+          </picture>
           <div class="grid__slider-image-info">
             <h3 class="grid__slider-image-title">Crypto Dashboard</h3>
             <p class="grid__slider-image-date">2016 Project</p>
