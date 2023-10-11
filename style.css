@@ -483,6 +483,7 @@ header {
   .hero__content {
     width: 60%;
     margin-top: 5.15em;
+    padding-inline: 2.6em;
   }
 
   .hero__picture {
@@ -645,7 +646,12 @@ header {
   }
 
   .hero__title {
+    line-height: 1.1;
     font-size: 5rem;
+  }
+
+  .hero__body {
+    line-height: 1.77;
   }
 
   .grid__title,
