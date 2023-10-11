@@ -482,6 +482,7 @@ header {
 
   .hero__content {
     width: 60%;
+    margin-top: 5.15em;
   }
 
   .hero__picture {
@@ -692,7 +693,17 @@ header {
 
   /* Hero layout */
   .hero__content {
+    width: 65%;
+    margin-block: 6.22em 8.9em;
     padding-left: 9.16em;
+  }
+
+  .hero__title {
+    margin-bottom: 0.5em;
+  }
+
+  .hero__body {
+    width: 75%;
   }
 
   /* Grid layout */
