@@ -186,7 +186,6 @@ header {
   padding: 1.625em;
   background-color: hsl( var(--clr-neutral-800) );
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  transition: clip-path 0.35s ease-out;
 }
 
 .close-nav {
@@ -399,10 +398,67 @@ header {
   /* Typograpghy */
   .nav-link {
     font-size: 0.9375rem;
+    transition: opacity 0.1s;
+  }
+
+  .nav-link:hover {
+    opacity: 0.65;
   }
 
   .hero__title {
     font-size: 3.5rem;
+  }
+
+  /* Header & navigation */
+  header {
+    display: flex;
+    padding: 0 0 0 2.6em;
+  }
+
+  .logo-container {
+    flex: 1;
+  }
+
+  .main-nav {
+    flex: 1;
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: max-content;
+    padding: 1.625em 2.6em 1.625em 2.2em;
+    background-color: hsl( var(--clr-primary) );
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .main-nav .btn {
+    background-color: hsl( var(--clr-neutral-800) );
+    padding: 1.45em 1.2em;
+    width: max-content;
+  }
+
+  .main-nav .btn:hover {
+    background-color: hsl( var(--clr-neutral-600) );
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 2em;
+    margin-right: 1.85em;
+  }
+
+  .nav-item {
+    text-align: center;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding-block: 0.65em;
+  }
+
+  .menu-btn {
+    display: none;
   }
 
   /* Hero layout */
@@ -541,7 +597,7 @@ header {
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1200px) {
   body {
     font-size: 1.125rem;
   }
@@ -560,6 +616,14 @@ header {
     font-size: 3.5rem;
   }
 
+  .footer__title {
+    width: 64%;
+  }
+
+  .grid__approach {
+    padding-left: 0;
+  }
+
   .grid__approach-list-body {
     line-height: 1.77;
   }
@@ -576,9 +640,17 @@ header {
     font-size: 1.125rem;
   }
 
-  /* Header */
+  /* Header & navigation */
   header {
-    padding-inline: 9.16em;
+    padding-inline: 9.16em 0;
+  }
+
+  .main-nav {
+    padding-right: 9.16em;
+  }
+
+  .main-nav .btn {
+    padding: 1.15em 2.9em;
   }
 
   /* Hero layout */
@@ -615,6 +687,8 @@ header {
 
   .grid__design-image {
     max-height: 984px;
+    min-height: 800px;
+    object-fit: cover;
   }
 
   .grid__approach {
@@ -645,11 +719,12 @@ header {
 
   .grid__slide-title-container,
   .grid__arrow-container {
-    margin-left: 9.16em;
+    /* margin-left: 9.16em; */
+    width: 445px;
+    margin-inline: auto;
   }
 
   .grid__slide-title-container {
-    width: 445px;
     overflow-x: hidden;
   }
 
@@ -669,5 +744,16 @@ header {
 
   .footer__content {
     padding: 6.65em 9.16em;
+  }
+}
+
+@media (min-width: 1400px) {
+  .grid__slide-title-container,
+  .grid__arrow-container {
+    margin-left: 9.16em;
+  }
+
+  .footer__title {
+    width: 58%;
   }
 }
