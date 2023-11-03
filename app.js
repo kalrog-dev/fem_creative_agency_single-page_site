@@ -46,7 +46,7 @@ mql.addEventListener("change", (event) => {
     // The viewport is 768 or more pixels wide. Open navigation
     nav.style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0 100%)";
   } else {
-    // From desktop to screen smaller screen with mobile navigation. Close navigation
+    // Change from desktop to a smaller screen with mobile navigation. Close navigation
     nav.style.clipPath = "polygon(0 0, 100% 0, 100% 0, 0 0)";
     nav.style.transitionDuration = "0s"
     nav.classList.add("close-nav");
