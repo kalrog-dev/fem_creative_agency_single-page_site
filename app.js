@@ -26,18 +26,33 @@ navBtn.addEventListener("click", () => {
 
 // Open and close navigation functions
 function closeNav() {
+  nav.style.clipPath = "";
+  nav.style.transitionDuration = "0.5s";
   nav.classList.add("close-nav");
   menuIcon.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
 }
 
 function openNav() {
+  nav.style.clipPath = "";
+  nav.style.transitionDuration = "0.5s";
   nav.classList.remove("close-nav");
   menuIcon.setAttribute("src", "./assets/mobile/icon-cross.svg");
 }
 
 // Close mobile navigation when the viewport width increases to desktop size
-const mql = window.matchMedia("(max-width: 768px)");
-mql.addEventListener("change", (event) => !event.matches && closeNav());
+const mql = window.matchMedia("(max-width: 767px)");
+mql.addEventListener("change", (event) => {
+  if (!event.matches) {
+    // The viewport is 768 or more pixels wide. Open navigation
+    nav.style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0 100%)";
+  } else {
+    // From desktop to screen smaller screen with mobile navigation. Close navigation
+    nav.style.clipPath = "polygon(0 0, 100% 0, 100% 0, 0 0)";
+    nav.style.transitionDuration = "0s"
+    nav.classList.add("close-nav");
+    menuIcon.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
+  }
+});
 
 /* ==================
   Slider
