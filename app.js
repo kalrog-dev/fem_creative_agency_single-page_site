@@ -24,7 +24,7 @@ navBtn.addEventListener("click", () => {
   closeNav();
 });
 
-// Functions
+// Open and close navigation functions
 function closeNav() {
   nav.classList.add("close-nav");
   menuIcon.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
@@ -34,6 +34,10 @@ function openNav() {
   nav.classList.remove("close-nav");
   menuIcon.setAttribute("src", "./assets/mobile/icon-cross.svg");
 }
+
+// Close mobile navigation when the viewport width increases to desktop size
+const mql = window.matchMedia("(max-width: 768px)");
+mql.addEventListener("change", (event) => !event.matches && closeNav());
 
 /* ==================
   Slider
