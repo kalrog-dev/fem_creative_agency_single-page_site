@@ -11,17 +11,11 @@ menuBtn.addEventListener("click", () => {
 });
 
 // Close mobile navigation when a navigation link or button is clicked
-const navLinks = document.querySelectorAll(".nav-link");
-const navBtn = document.querySelector(".main-nav .btn");
-
-navLinks.forEach(navLink => {
-  navLink.addEventListener("click", () => {
+nav.addEventListener("click", ({ target }) => {
+  // If the event bubbled up from a navigation link or nav button
+  if (target.closest(".nav-link") || target.closest(".btn")) {
     closeNav();
-  });
-})
-
-navBtn.addEventListener("click", () => {
-  closeNav();
+  }
 });
 
 // Open and close navigation functions
