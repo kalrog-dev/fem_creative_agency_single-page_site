@@ -1,4 +1,4 @@
-# Frontend Mentor - Solution
+# FEM - Creative Agency
 
 This is my solution to the [Creative Agency](https://www.frontendmentor.io/challenges/creative-agency-singlepage-site-Pq6V3I2RM) challenge on Frontend Mentor. Some of its features include an image slider, overlapping sections and a mobile navigation.
 
