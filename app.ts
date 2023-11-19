@@ -1,42 +1,46 @@
 /* ==================
   Mobile navigation
 =====================*/
-const menuBtn = document.querySelector(".menu-btn");
-const menuIcon = document.querySelector(".menu-icon");
-const nav = document.querySelector(".main-nav");
+const menuBtn = document.querySelector(".menu-btn") as HTMLButtonElement | null;
+const menuIcon = document.querySelector(".menu-icon") as HTMLImageElement | null;
+const nav = document.querySelector(".main-nav") as HTMLElement | null;
 
 // Open and close mobile navigation
-menuBtn.addEventListener("click", () => {
-  nav.classList.contains("close-nav") ? openNav() : closeNav();
+menuBtn?.addEventListener("click", () => {
+  nav?.classList.contains("close-nav") ? openNav() : closeNav();
 });
 
 // Close mobile navigation when a navigation link or button is clicked
-nav.addEventListener("click", ({ target }) => {
+nav?.addEventListener("click", (event) => {
+  const target = event?.target as HTMLElement | null;
   // If the event bubbled up from a navigation link or nav button
-  if (target.closest(".nav-link") || target.closest(".btn")) {
+  if (target?.closest(".nav-link") || target?.closest(".btn")) {
     closeNav();
   }
 });
 
 // Open and close navigation functions
 function closeNav() {
+  if (!nav) return;
   nav.style.clipPath = "";
   nav.style.transitionDuration = "0.5s";
   nav.classList.add("close-nav");
-  menuIcon.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
+  menuIcon?.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
 }
 
 function openNav() {
+  if (!nav) return;
   nav.style.clipPath = "";
   nav.style.transitionDuration = "0.5s";
   nav.classList.remove("close-nav");
-  menuIcon.setAttribute("src", "./assets/mobile/icon-cross.svg");
+  menuIcon?.setAttribute("src", "./assets/mobile/icon-cross.svg");
 }
 
 // Close mobile navigation when the viewport width increases to desktop size
-const mql = window.matchMedia("(max-width: 767px)");
+const mql: MediaQueryList = window.matchMedia("(max-width: 767px)");
 mql.addEventListener("change", (event) => {
-  if (!event.matches) {
+  if (!nav) return;
+  if (!event?.matches) {
     // The viewport is 768 or more pixels wide. Open navigation
     nav.style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0 100%)";
   } else {
@@ -44,20 +48,20 @@ mql.addEventListener("change", (event) => {
     nav.style.clipPath = "polygon(0 0, 100% 0, 100% 0, 0 0)";
     nav.style.transitionDuration = "0s"
     nav.classList.add("close-nav");
-    menuIcon.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
+    menuIcon?.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
   }
 });
 
 /* ==================
   Slider
 =====================*/
-let currentSlide = 0;
-const btnPrev = document.querySelector(".grid__btn-prev");
-const btnNext = document.querySelector(".grid__btn-next");
-const slidesOfImages = document.querySelector(".grid__slides");
-const slidesOfText = document.querySelector(".grid__slide-titles");
-const slideImage = document.querySelector(".grid__slider-image");
-const slideText = document.querySelector(".grid__slide-title");
+let currentSlide: number = 0;
+const btnPrev = document.querySelector(".grid__btn-prev") as HTMLButtonElement | null;
+const btnNext = document.querySelector(".grid__btn-next") as HTMLButtonElement | null;
+const slidesOfImages = document.querySelector(".grid__slides") as HTMLDivElement | null;
+const slidesOfText = document.querySelector(".grid__slide-titles") as HTMLDivElement | null;
+const slideText = document.querySelector(".grid__slide-title") as HTMLDivElement | null;
+const slideImage = document.querySelector(".grid__slider-image") as HTMLImageElement | null;
 
 // Clamp current slide
 function clamp(num, min, max) {
@@ -75,14 +79,16 @@ function getElementWidth(element) {
 }
 
 // Arrow button listeners
-btnPrev.addEventListener("click", () => {
+btnPrev?.addEventListener("click", () => {
+  if (!slidesOfImages || !slidesOfText) return;
   currentSlide--;
   currentSlide = clamp(currentSlide, 0, 2);
   slidesOfImages.style.transform = `translateX(${currentSlide * -getElementWidth(slideImage)}px)`;
   slidesOfText.style.transform = `translateX(${currentSlide * -getElementWidth(slideText)}px)`;
 });
 
-btnNext.addEventListener("click", () => {
+btnNext?.addEventListener("click", () => {
+  if (!slidesOfImages || !slidesOfText) return;
   currentSlide++;
   currentSlide = clamp(currentSlide, 0, 2);
   slidesOfImages.style.transform = `translateX(${currentSlide * -getElementWidth(slideImage)}px)`;
@@ -91,6 +97,7 @@ btnNext.addEventListener("click", () => {
 
 // Detect viewport size change and update the sliding image/text sizes
 window.addEventListener("resize", () => {
+  if (!slidesOfImages || !slidesOfText) return;
   slidesOfImages.style.transform = `translateX(${currentSlide * -getElementWidth(slideImage)}px)`;
   slidesOfText.style.transform = `translateX(${currentSlide * -getElementWidth(slideText)}px)`;
 })
