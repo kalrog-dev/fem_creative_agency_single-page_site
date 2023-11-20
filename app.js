@@ -86,12 +86,14 @@ function updateCurrentSlideNumber(event) {
     var target = event === null || event === void 0 ? void 0 : event.target;
     if (target === null || target === void 0 ? void 0 : target.closest(".grid__btn-next")) {
         currentSlide++;
+        currentSlide = clamp(currentSlide, 0, 2);
     }
     else if (target === null || target === void 0 ? void 0 : target.closest(".grid__btn-prev")) {
         currentSlide--;
+        currentSlide = clamp(currentSlide, 0, 2);
     }
-    currentSlide = clamp(currentSlide, 0, 2);
 }
+// Translate the slider elements to the next/prev slide
 function showCurrentSlide() {
     if (!slidesOfImages || !slidesOfText)
         return;

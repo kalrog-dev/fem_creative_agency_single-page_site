@@ -91,12 +91,14 @@ function updateCurrentSlideNumber(event): void {
   const target = event?.target as HTMLElement | null;
   if (target?.closest(".grid__btn-next")) {
     currentSlide++;
+    currentSlide = clamp(currentSlide, 0, 2);
   } else if (target?.closest(".grid__btn-prev")) {
     currentSlide--;
+    currentSlide = clamp(currentSlide, 0, 2);
   }
-  currentSlide = clamp(currentSlide, 0, 2);
 }
 
+// Translate the slider elements to the next/prev slide
 function showCurrentSlide(): void {
   if (!slidesOfImages || !slidesOfText) return;
   slidesOfImages.style.transform = `translateX(${currentSlide * -getElementWidth(slideImage)}px)`;
