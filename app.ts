@@ -54,11 +54,7 @@ mql.addEventListener("change", (event) => {
   Slider
 =====================*/
 let currentSlide: number = 0;
-const btnPrev = document.querySelector(".grid__btn-prev") as HTMLButtonElement | null;
-const btnNext = document.querySelector(".grid__btn-next") as HTMLButtonElement | null;
 const arrowBtnContainer = document.querySelector(".grid__arrow-container") as HTMLDivElement | null;
-
-
 const slidesOfImages = document.querySelector(".grid__slides") as HTMLDivElement | null;
 const slidesOfText = document.querySelector(".grid__slide-titles") as HTMLDivElement | null;
 const slideText = document.querySelector(".grid__slide-title") as HTMLDivElement | null;
@@ -90,14 +86,12 @@ window.addEventListener("resize", () => {
   showCurrentSlide();
 })
 
+// Increment/decrement the slide index if the click event bubbled up from the next/prev button
 function updateCurrentSlideNumber(event): void {
   const target = event?.target as HTMLElement | null;
-  // If the event bubbled up from the next btn
   if (target?.closest(".grid__btn-next")) {
     currentSlide++;
-  }
-  // If the event bubbled up from the prev btn 
-  else if (target?.closest(".grid__btn-prev")) {
+  } else if (target?.closest(".grid__btn-prev")) {
     currentSlide--;
   }
   currentSlide = clamp(currentSlide, 0, 2);

@@ -52,8 +52,6 @@ mql.addEventListener("change", function (event) {
   Slider
 =====================*/
 var currentSlide = 0;
-var btnPrev = document.querySelector(".grid__btn-prev");
-var btnNext = document.querySelector(".grid__btn-next");
 var arrowBtnContainer = document.querySelector(".grid__arrow-container");
 var slidesOfImages = document.querySelector(".grid__slides");
 var slidesOfText = document.querySelector(".grid__slide-titles");
@@ -83,13 +81,12 @@ arrowBtnContainer === null || arrowBtnContainer === void 0 ? void 0 : arrowBtnCo
 window.addEventListener("resize", function () {
     showCurrentSlide();
 });
+// Increment/decrement the slide index if the click event bubbled up from the next/prev button
 function updateCurrentSlideNumber(event) {
     var target = event === null || event === void 0 ? void 0 : event.target;
-    // If the event bubbled up from the next btn
     if (target === null || target === void 0 ? void 0 : target.closest(".grid__btn-next")) {
         currentSlide++;
     }
-    // If the event bubbled up from the prev btn 
     else if (target === null || target === void 0 ? void 0 : target.closest(".grid__btn-prev")) {
         currentSlide--;
     }
