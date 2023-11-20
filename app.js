@@ -54,40 +54,47 @@ mql.addEventListener("change", function (event) {
 var currentSlide = 0;
 var btnPrev = document.querySelector(".grid__btn-prev");
 var btnNext = document.querySelector(".grid__btn-next");
+var arrowBtnContainer = document.querySelector(".grid__arrow-container");
 var slidesOfImages = document.querySelector(".grid__slides");
 var slidesOfText = document.querySelector(".grid__slide-titles");
 var slideText = document.querySelector(".grid__slide-title");
 var slideImage = document.querySelector(".grid__slider-image");
 // Clamp the current slide number
-function clamp(num, min, max) {
-    if (num < min) {
-        num = min;
+function clamp(input, min, max) {
+    if (input < min) {
+        input = min;
     }
-    else if (num > max) {
-        num = max;
+    else if (input > max) {
+        input = max;
     }
-    return num;
+    return input;
 }
 // Get the element width
 function getElementWidth(element) {
     var _a;
     return (_a = element === null || element === void 0 ? void 0 : element.offsetWidth) !== null && _a !== void 0 ? _a : 0;
 }
-// Arrow button listeners
-btnPrev === null || btnPrev === void 0 ? void 0 : btnPrev.addEventListener("click", function () {
-    currentSlide--;
-    currentSlide = clamp(currentSlide, 0, 2);
-    showCurrentSlide();
-});
-btnNext === null || btnNext === void 0 ? void 0 : btnNext.addEventListener("click", function () {
-    currentSlide++;
-    currentSlide = clamp(currentSlide, 0, 2);
+// Listen for next/prev slide btn clicks, update the current slide index and display the slide
+arrowBtnContainer === null || arrowBtnContainer === void 0 ? void 0 : arrowBtnContainer.addEventListener("click", function (event) {
+    updateCurrentSlideNumber(event);
     showCurrentSlide();
 });
 // Detect viewport size change and update the sliding image/text sizes
 window.addEventListener("resize", function () {
     showCurrentSlide();
 });
+function updateCurrentSlideNumber(event) {
+    var target = event === null || event === void 0 ? void 0 : event.target;
+    // If the event bubbled up from the next btn
+    if (target === null || target === void 0 ? void 0 : target.closest(".grid__btn-next")) {
+        currentSlide++;
+    }
+    // If the event bubbled up from the prev btn 
+    else if (target === null || target === void 0 ? void 0 : target.closest(".grid__btn-prev")) {
+        currentSlide--;
+    }
+    currentSlide = clamp(currentSlide, 0, 2);
+}
 function showCurrentSlide() {
     if (!slidesOfImages || !slidesOfText)
         return;
