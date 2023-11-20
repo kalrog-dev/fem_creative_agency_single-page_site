@@ -61,8 +61,8 @@ const slidesOfText = document.querySelector(".grid__slide-titles") as HTMLDivEle
 const slideText = document.querySelector(".grid__slide-title") as HTMLDivElement | null;
 const slideImage = document.querySelector(".grid__slider-image") as HTMLImageElement | null;
 
-// Clamp current slide
-function clamp(num, min, max) {
+// Clamp the current slide number
+function clamp(num: number, min: number, max: number): number {
   if (num < min) {
     num = min;
   } else if (num > max) {
@@ -71,9 +71,9 @@ function clamp(num, min, max) {
   return num;
 }
 
-// Get element width
-function getElementWidth(element) {
-  return element.offsetWidth;
+// Get the element width
+function getElementWidth(element: HTMLElement | null): number {
+  return element?.offsetWidth ?? 0;
 }
 
 // Arrow button listeners

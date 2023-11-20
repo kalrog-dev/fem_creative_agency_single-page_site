@@ -58,7 +58,7 @@ var slidesOfImages = document.querySelector(".grid__slides");
 var slidesOfText = document.querySelector(".grid__slide-titles");
 var slideText = document.querySelector(".grid__slide-title");
 var slideImage = document.querySelector(".grid__slider-image");
-// Clamp current slide
+// Clamp the current slide number
 function clamp(num, min, max) {
     if (num < min) {
         num = min;
@@ -68,9 +68,10 @@ function clamp(num, min, max) {
     }
     return num;
 }
-// Get element width
+// Get the element width
 function getElementWidth(element) {
-    return element.offsetWidth;
+    var _a;
+    return (_a = element === null || element === void 0 ? void 0 : element.offsetWidth) !== null && _a !== void 0 ? _a : 0;
 }
 // Arrow button listeners
 btnPrev === null || btnPrev === void 0 ? void 0 : btnPrev.addEventListener("click", function () {
