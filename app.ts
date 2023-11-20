@@ -78,24 +78,24 @@ function getElementWidth(element: HTMLElement | null): number {
 
 // Arrow button listeners
 btnPrev?.addEventListener("click", () => {
-  if (!slidesOfImages || !slidesOfText) return;
   currentSlide--;
   currentSlide = clamp(currentSlide, 0, 2);
-  slidesOfImages.style.transform = `translateX(${currentSlide * -getElementWidth(slideImage)}px)`;
-  slidesOfText.style.transform = `translateX(${currentSlide * -getElementWidth(slideText)}px)`;
+  showCurrentSlide();
 });
 
 btnNext?.addEventListener("click", () => {
-  if (!slidesOfImages || !slidesOfText) return;
   currentSlide++;
   currentSlide = clamp(currentSlide, 0, 2);
-  slidesOfImages.style.transform = `translateX(${currentSlide * -getElementWidth(slideImage)}px)`;
-  slidesOfText.style.transform = `translateX(${currentSlide * -getElementWidth(slideText)}px)`;
+  showCurrentSlide();
 });
 
 // Detect viewport size change and update the sliding image/text sizes
 window.addEventListener("resize", () => {
+  showCurrentSlide();
+})
+
+function showCurrentSlide(): void {
   if (!slidesOfImages || !slidesOfText) return;
   slidesOfImages.style.transform = `translateX(${currentSlide * -getElementWidth(slideImage)}px)`;
   slidesOfText.style.transform = `translateX(${currentSlide * -getElementWidth(slideText)}px)`;
-})
+}

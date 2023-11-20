@@ -75,25 +75,22 @@ function getElementWidth(element) {
 }
 // Arrow button listeners
 btnPrev === null || btnPrev === void 0 ? void 0 : btnPrev.addEventListener("click", function () {
-    if (!slidesOfImages || !slidesOfText)
-        return;
     currentSlide--;
     currentSlide = clamp(currentSlide, 0, 2);
-    slidesOfImages.style.transform = "translateX(".concat(currentSlide * -getElementWidth(slideImage), "px)");
-    slidesOfText.style.transform = "translateX(".concat(currentSlide * -getElementWidth(slideText), "px)");
+    showCurrentSlide();
 });
 btnNext === null || btnNext === void 0 ? void 0 : btnNext.addEventListener("click", function () {
-    if (!slidesOfImages || !slidesOfText)
-        return;
     currentSlide++;
     currentSlide = clamp(currentSlide, 0, 2);
-    slidesOfImages.style.transform = "translateX(".concat(currentSlide * -getElementWidth(slideImage), "px)");
-    slidesOfText.style.transform = "translateX(".concat(currentSlide * -getElementWidth(slideText), "px)");
+    showCurrentSlide();
 });
 // Detect viewport size change and update the sliding image/text sizes
 window.addEventListener("resize", function () {
+    showCurrentSlide();
+});
+function showCurrentSlide() {
     if (!slidesOfImages || !slidesOfText)
         return;
     slidesOfImages.style.transform = "translateX(".concat(currentSlide * -getElementWidth(slideImage), "px)");
     slidesOfText.style.transform = "translateX(".concat(currentSlide * -getElementWidth(slideText), "px)");
-});
+}
