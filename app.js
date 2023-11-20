@@ -6,32 +6,30 @@ var menuIcon = document.querySelector(".menu-icon");
 var nav = document.querySelector(".main-nav");
 // Open and close mobile navigation
 menuBtn === null || menuBtn === void 0 ? void 0 : menuBtn.addEventListener("click", function () {
-    (nav === null || nav === void 0 ? void 0 : nav.classList.contains("close-nav")) ? openNav() : closeNav();
+    (nav === null || nav === void 0 ? void 0 : nav.classList.contains("close-nav")) ? displayNav(true) : displayNav(false);
 });
 // Close mobile navigation when a navigation link or button is clicked
 nav === null || nav === void 0 ? void 0 : nav.addEventListener("click", function (event) {
     var target = event === null || event === void 0 ? void 0 : event.target;
     // If the event bubbled up from a navigation link or nav button
     if ((target === null || target === void 0 ? void 0 : target.closest(".nav-link")) || (target === null || target === void 0 ? void 0 : target.closest(".btn"))) {
-        closeNav();
+        displayNav(false);
     }
 });
-// Open and close navigation functions
-function closeNav() {
+// Open and close mobile navigation depending on the argument
+function displayNav(show) {
     if (!nav)
         return;
     nav.style.clipPath = "";
     nav.style.transitionDuration = "0.5s";
-    nav.classList.add("close-nav");
-    menuIcon === null || menuIcon === void 0 ? void 0 : menuIcon.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
-}
-function openNav() {
-    if (!nav)
-        return;
-    nav.style.clipPath = "";
-    nav.style.transitionDuration = "0.5s";
-    nav.classList.remove("close-nav");
-    menuIcon === null || menuIcon === void 0 ? void 0 : menuIcon.setAttribute("src", "./assets/mobile/icon-cross.svg");
+    if (show) {
+        nav.classList.remove("close-nav");
+        menuIcon === null || menuIcon === void 0 ? void 0 : menuIcon.setAttribute("src", "./assets/mobile/icon-cross.svg");
+    }
+    else {
+        nav.classList.add("close-nav");
+        menuIcon === null || menuIcon === void 0 ? void 0 : menuIcon.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
+    }
 }
 // Close mobile navigation when the viewport width increases to desktop size
 var mql = window.matchMedia("(max-width: 767px)");

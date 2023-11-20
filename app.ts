@@ -7,7 +7,7 @@ const nav = document.querySelector(".main-nav") as HTMLElement | null;
 
 // Open and close mobile navigation
 menuBtn?.addEventListener("click", () => {
-  nav?.classList.contains("close-nav") ? openNav() : closeNav();
+  nav?.classList.contains("close-nav") ? displayNav(true) : displayNav(false);
 });
 
 // Close mobile navigation when a navigation link or button is clicked
@@ -15,25 +15,23 @@ nav?.addEventListener("click", (event) => {
   const target = event?.target as HTMLElement | null;
   // If the event bubbled up from a navigation link or nav button
   if (target?.closest(".nav-link") || target?.closest(".btn")) {
-    closeNav();
+    displayNav(false);
   }
 });
 
-// Open and close navigation functions
-function closeNav() {
+// Open and close mobile navigation depending on the argument
+function displayNav(show: boolean): void {
   if (!nav) return;
   nav.style.clipPath = "";
   nav.style.transitionDuration = "0.5s";
-  nav.classList.add("close-nav");
-  menuIcon?.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
-}
 
-function openNav() {
-  if (!nav) return;
-  nav.style.clipPath = "";
-  nav.style.transitionDuration = "0.5s";
-  nav.classList.remove("close-nav");
-  menuIcon?.setAttribute("src", "./assets/mobile/icon-cross.svg");
+  if (show) {
+    nav.classList.remove("close-nav");
+    menuIcon?.setAttribute("src", "./assets/mobile/icon-cross.svg");
+  } else {
+    nav.classList.add("close-nav");
+    menuIcon?.setAttribute("src", "./assets/mobile/icon-hamburger.svg");
+  }
 }
 
 // Close mobile navigation when the viewport width increases to desktop size
