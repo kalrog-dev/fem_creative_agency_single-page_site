@@ -1,0 +1,2 @@
+# Ignore js language in github statistics when using ts
+*.js linguist-vendored
